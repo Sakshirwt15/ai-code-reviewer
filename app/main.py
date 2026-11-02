@@ -51,6 +51,13 @@ def create_app(settings: Settings | None = None, db: Database | None = None,
     runner = review_runner or make_default_runner(settings, db)
     app = FastAPI(title="AI Code Review Bot", version=__version__)
 
+    @app.get("/")
+    async def root():
+        return {
+        "message": "AI Code Review Bot is running!",
+        "status": "success"
+    }
+
     @app.get("/health")
     def health() -> dict:
         return {"status": "ok", "version": __version__, "provider": settings.llm_provider}
