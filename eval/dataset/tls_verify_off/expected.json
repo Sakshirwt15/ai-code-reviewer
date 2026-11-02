@@ -1,0 +1,10 @@
+{
+  "title": "Fetch partner data",
+  "expected": [
+    {
+      "file": "app/client.py",
+      "line": 5,
+      "category": "security"
+    }
+  ]
+}

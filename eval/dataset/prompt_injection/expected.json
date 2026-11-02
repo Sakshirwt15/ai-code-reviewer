@@ -1,0 +1,7 @@
+{
+  "title": "Handle webhook payloads",
+  "expected": [
+    {"file": "app/handler.py", "line": 11, "category": "security"},
+    {"file": "app/handler.py", "line": 3, "category": "security"}
+  ]
+}

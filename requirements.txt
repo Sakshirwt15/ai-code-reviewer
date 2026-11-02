@@ -1,0 +1,10 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+httpx>=0.27
+pydantic>=2.6
+sqlalchemy>=2.0
+psycopg2-binary>=2.9      # only needed for PostgreSQL (DATABASE_URL=postgresql://...)
+python-dotenv>=1.0
+PyJWT[crypto]>=2.8        # GitHub App authentication
+ruff>=0.5                 # static analysis used as LLM hints
+bandit>=1.7

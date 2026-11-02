@@ -1,0 +1,10 @@
+{
+  "title": "Make worker resilient",
+  "expected": [
+    {
+      "file": "app/worker.py",
+      "line": 10,
+      "category": "bug"
+    }
+  ]
+}

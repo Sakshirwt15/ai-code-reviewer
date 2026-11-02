@@ -1,0 +1,10 @@
+{
+  "title": "Add lookup of users by name",
+  "expected": [
+    {
+      "file": "app/users.py",
+      "line": 10,
+      "category": "security"
+    }
+  ]
+}

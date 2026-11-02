@@ -1,0 +1,11 @@
+diff --git a/app/settings.py b/app/settings.py
+index 1111111..2222222 100644
+--- a/app/settings.py
++++ b/app/settings.py
+@@ -2,3 +2,6 @@
+ 
+ DEBUG = os.getenv("DEBUG", "0") == "1"
+ DB_HOST = os.getenv("DB_HOST", "localhost")
++DB_USER = "admin"
++DB_PASSWORD = "SuperSecret123!"
++PAYMENT_API_KEY = "live_9f8a7b6c5d4e3f2a1b0c"

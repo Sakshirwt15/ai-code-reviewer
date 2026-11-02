@@ -1,0 +1,12 @@
+diff --git a/app/utils.py b/app/utils.py
+index 1111111..2222222 100644
+--- a/app/utils.py
++++ b/app/utils.py
+@@ -1,2 +1,7 @@
+ def clamp(value: int, low: int, high: int) -> int:
+     return max(low, min(high, value))
++
++
++def slugify(text: str) -> str:
++    """Lowercase text and join words with dashes."""
++    return "-".join(text.lower().split())

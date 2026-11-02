@@ -1,0 +1,15 @@
+{
+  "title": "Configure database and payments",
+  "expected": [
+    {
+      "file": "app/settings.py",
+      "line": 6,
+      "category": "security"
+    },
+    {
+      "file": "app/settings.py",
+      "line": 7,
+      "category": "security"
+    }
+  ]
+}

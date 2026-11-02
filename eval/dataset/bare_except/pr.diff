@@ -1,0 +1,13 @@
+diff --git a/app/worker.py b/app/worker.py
+index 1111111..2222222 100644
+--- a/app/worker.py
++++ b/app/worker.py
+@@ -5,4 +5,7 @@
+ 
+ def process(job):
+     log.info("processing %s", job)
+-    return job.run()
++    try:
++        return job.run()
++    except:
++        pass

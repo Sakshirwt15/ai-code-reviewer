@@ -1,0 +1,10 @@
+diff --git a/app/client.py b/app/client.py
+index 1111111..2222222 100644
+--- a/app/client.py
++++ b/app/client.py
+@@ -2,4 +2,4 @@
+ 
+ 
+ def fetch(url: str) -> dict:
+-    return requests.get(url, timeout=10).json()
++    return requests.get(url, timeout=10, verify=False).json()

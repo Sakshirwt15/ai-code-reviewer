@@ -1,0 +1,10 @@
+{
+  "title": "Add expression calculator",
+  "expected": [
+    {
+      "file": "app/calc.py",
+      "line": 7,
+      "category": "security"
+    }
+  ]
+}
