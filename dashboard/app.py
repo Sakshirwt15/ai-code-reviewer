@@ -1,13 +1,16 @@
-"""Streamlit dashboard.  Run:  streamlit run dashboard/app.py"""
+"""Streamlit dashboard. Run: streamlit run dashboard/app.py"""
+
 import sys
 from pathlib import Path
 
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR))
+
+from app.config import Settings
+from app.db import Database
+
 import pandas as pd
 import streamlit as st
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from app.config import Settings  # noqa: E402
-from app.db import Database  # noqa: E402
 
 st.set_page_config(page_title="AI Code Review Bot", page_icon="🤖", layout="wide")
 st.title("🤖 AI Code Review Bot")
