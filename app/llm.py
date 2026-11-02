@@ -9,6 +9,7 @@ from typing import Protocol
 import httpx
 
 from .config import ConfigError, Settings
+from .security import looks_like_injection
 
 
 class LLMError(RuntimeError):
@@ -156,7 +157,16 @@ class MockClient:
                 files.add(path)
                 continue
             am = _ADD_RE.match(raw)
-            if not am or path is None or am.group(2).lstrip().startswith(("#", "//")):
+            if not am or path is None:
+                continue
+            if looks_like_injection(am.group(2)):
+                findings.append({"file": path, "line": int(am.group(1)), "severity": "medium",
+                                 "category": "security",
+                                 "message": "Comment contains instructions aimed at AI reviewers (prompt injection attempt).",
+                                 "suggestion": "Remove it; code comments must not steer the reviewer.",
+                                 "confidence": 0.8})
+                continue
+            if am.group(2).lstrip().startswith(("#", "//")):
                 continue
             for rx, sev, cat, msg, sugg, _, conf in _MOCK_RULES:
                 if rx.search(am.group(2)):

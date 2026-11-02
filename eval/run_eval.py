@@ -17,7 +17,6 @@ from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 from pathlib import Path
 
-
 from app.config import Settings
 from app.llm import make_llm_client
 from app.pipeline import analyze_diff
@@ -67,7 +66,8 @@ def run(settings: Settings, dataset: Path = DATASET) -> tuple[list[CaseResult], 
     for d in sorted(dataset.iterdir()):
         if (d / "expected.json").exists():
             results.append(evaluate_case(d, reviewer, settings))
-            time.sleep(15)  # free-tier rate limit se bachne ke liye
+            if settings.llm_provider != "mock":
+                time.sleep(15)  # sirf real API ke liye  # free-tier rate limit se bachne ke liye
     tp, fp, fn = (sum(getattr(r, k) for r in results) for k in ("tp", "fp", "fn"))
     precision = tp / (tp + fp) if tp + fp else 1.0
     recall = tp / (tp + fn) if tp + fn else 1.0
